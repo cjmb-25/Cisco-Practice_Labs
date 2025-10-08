@@ -1,0 +1,26 @@
+S1-configuration:
+-----
+enable
+configure terminal
+no ip domain-lookup
+hostname S1
+banner motd $
+Practice Laboratory
+Unauthorized personnel not allowed!
+$
+enable secret sample
+
+line console 0
+password sample
+login
+exit
+
+
+line vty 0 15
+password sample
+login
+exit
+
+service password-encryption
+do write
+-----
