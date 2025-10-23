@@ -1,0 +1,46 @@
+Router-A configuration:
+-----
+no
+
+enable
+configure terminal
+
+no ip domain-lookup
+hostname Switch-B
+
+banner motd $
+Switch-B
+
+Credentials
+
+enable: enablePW
+console: consolePW
+vty: vtyPW
+
+Practice Laboratory
+Unauthorized access not allowed!$
+
+line console 0
+password consolePW
+login
+exit
+
+line vty 0 4
+password vtyPW
+login
+exit
+
+service password-encryption
+
+interface GigabitEthernet 0/1
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+interface GigabitEthernet 0/2
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+
+do write
+-----

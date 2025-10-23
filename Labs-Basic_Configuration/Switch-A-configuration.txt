@@ -1,0 +1,42 @@
+Switch-A configuration:
+-----
+enable
+configure terminal
+
+no ip domain-lookup
+hostname Switch-A
+
+banner motd $
+Switch-A
+
+Credentials
+
+enable: enablePW
+console: consolePW
+vty: vtyPW
+
+Practice Laboratory
+Unauthorized access not allowed!$
+
+line console 0
+password consolePW
+login
+exit
+
+line vty 0 4
+password vtyPW
+login
+exit
+
+service password-encryption
+
+vlan 10
+name VLAN10
+exit
+
+vlan 20
+name VLAN20
+exit
+
+do write
+-----
