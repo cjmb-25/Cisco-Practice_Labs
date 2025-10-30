@@ -1,0 +1,43 @@
+Router-2-configuration:
+-----
+enable
+configure terminal
+no ip domain-lookup
+hostname Router-2
+banner motd $
+Unauthorized access prohibited!
+
+Lab Credentials
+enable: Epass
+console: Cpass
+vty: Vpass $
+
+enable secret Epass
+
+line console 0
+password Cpass
+login
+exit
+
+line vty 0 4
+password Vpass
+login
+exit
+
+service password-encryption
+
+interface GigabitEthernet 0/1
+ip address 192.168.0.2 255.255.255.252
+no shutdown
+exit
+
+interface GigabitEthernet 0/2
+ip address 192.168.0.5 255.255.255.252
+no shutdown
+exit
+
+ip route 192.168.1.0 255.255.255.0 192.168.0.1
+ip route 192.168.2.0 255.255.255.0 192.168.0.6
+
+do write
+-----

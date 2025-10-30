@@ -1,0 +1,30 @@
+Switch-2-configuration:
+-----
+enable
+configure terminal
+no ip domain-lookup
+hostname Switch-2
+banner motd $
+Unauthorized access prohibited!
+
+Lab Credentials
+enable: Epass
+console: Cpass
+vty: Vpass $
+
+enable secret Epass
+
+line console 0
+password Cpass
+login
+exit
+
+line vty 0 4
+password Vpass
+login
+exit
+
+service password-encryption
+
+do write
+-----
